@@ -24,9 +24,19 @@ Add the following to your `Package.swift` file:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yourusername/bangla.swift.git", from: "0.0.0")
+    .package(url: "https://github.com/nurulhudaapon/bangla.swift.git", from: "0.0.0")
 ]
 ```
+
+### Xcode
+
+1. In Xcode, go to File > Add Packages... (or use the keyboard shortcut ⌘⇧⌥A)
+2. In the search bar at the top right, paste this URL:
+   ```
+   https://github.com/nurulhudaapon/bangla.swift.git
+   ```
+3. Click "Add Package"
+4. Choose your desired version and target, then click "Add Package"
 
 ## Usage
 

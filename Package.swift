@@ -13,10 +13,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "BanglaKit",
-            targets: ["BanglaKit"]),
-        .library(
-            name: "Transliteration",
-            targets: ["Transliteration"])
+            targets: ["BanglaKit"])
     ],
     dependencies: [
         // Add dependencies here as needed
@@ -26,11 +23,7 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "BanglaKit",
-            dependencies: [
-                "Transliteration"
-            ]),
-        .target(
-            name: "Transliteration"),
+            dependencies: []),
         .testTarget(
             name: "BanglaKitTests",
             dependencies: ["BanglaKit"]
