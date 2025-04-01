@@ -26,7 +26,10 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "BanglaKitTests",
-            dependencies: ["BanglaKit"]
+            dependencies: ["BanglaKit"],
+            resources: [
+                .process("test_data.json")
+            ]
         ),
     ]
 )

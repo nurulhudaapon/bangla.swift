@@ -2,42 +2,92 @@ import Testing
 import Foundation
 @testable import BanglaKit
 
-let text = "kemon achO bondhoo, onek din por dekha ami banglaY likhte khoob pochondo kori. bangla bhaSha amader matrribhaSha. eTar modhZe onek soondor soondor kobita O golpo ache. ami ceShTa kori sob somoY shooddho banglaY kotha bolte. ami jani, bangla bZakaroNe onek zooktakkhor ache, za likhte ekoTu koThin. kintu, ami segoolO shikhte cai. ami procoor boi poRi, za amake bangla bhaSha sombndhe arO beshi janote sahazZo kore. ami bisheSh kore robIndronath Thakoorer kobita O golp poRi, zar modhZe ononto prem O prkrritir chobi ache. ami biswas kori, bangla bhasa amader sobaike ek sootOY ba^dhe. ami ei bhaSha niYe gorrbo bOdh kori. ami asha kori, amora sobai mile bangla bhaShake arO unnoto korbO."
+final class TransliterationTests {
+    var testData: TestData
+    init() async throws {
+         // Load test data from JSON file
+        guard let testDataURL = Bundle.module.url(forResource: "test_data", withExtension: "json") else {
+            throw TestError("Could not find test_data.json in test bundle")
+        }
+        
+        let jsonData = try Data(contentsOf: testDataURL)
+        let testData = try JSONDecoder().decode(TestData.self, from: jsonData)
+        self.testData = testData
+    }
 
-let transliteratedText = "কেমন আছো বন্ধু, অনেক দিন পর দেখা আমি বাংলায় লিখতে খুব পছন্দ করি। বাংলা ভাষা আমাদের মাতৃভাষা। এটার মধ্যে অনেক সুন্দর সুন্দর কবিতা ও গল্প আছে। আমি চেষ্টা করি সব সময় শুদ্ধ বাংলায় কথা বলতে। আমি জানি, বাংলা ব্যাকারণে অনেক যুক্তাক্ষর আছে, যা লিখতে একটু কঠিন। কিন্তু, আমি সেগুলো শিখতে চাই। আমি প্রচুর বই পড়ি, যা আমাকে বাংলা ভাষা সম্বন্ধে আরো বেশি জানতে সাহায্য করে। আমি বিশেষ করে রবীন্দ্রনাথ ঠাকুরের কবিতা ও গল্প পড়ি, যার মধ্যে অনন্ত প্রেম ও প্রকৃতির ছবি আছে। আমি বিস্বাস করি, বাংলা ভাসা আমাদের সবাইকে এক সুতোয় বাঁধে। আমি এই ভাষা নিয়ে গর্ব বোধ করি। আমি আশা করি, আমরা সবাই মিলে বাংলা ভাষাকে আরো উন্নত করবো।"
 
-@Test func basic() async throws {
-    let result =   Transliteration.transliterate(text: "ami banglar pracIn vaShar sahazye likhi.", mode: "avro")
-    #expect(result == "আমি বাংলার প্রাচীন ভাষার সাহায্যে লিখি।")
+    @Test func basic() async throws {
+        let result = Transliteration.transliterate(text: testData.basic.orva, mode: "avro")
+        #expect(result == testData.basic.avroed)
+    }
+
+    @Test func ligature() async throws {
+      
+        
+        // Test each ligature
+        for (key, value) in testData.ligature.ligatures {
+            let result = Transliteration.transliterate(text: key, mode: "avro")
+            #expect(result == value, "Failed for ligature: \(key)")
+        }
+    }
+
+    @Test func performance() async throws {
+        // This test should process large text quickly (under 4ms per thousand characters)
+        let ALLOWED_MS_PER_THOUSAND_CHARS = 4.0
+        let REPETITION_COUNT = 1000 // Increased to match JS test
+
+        let sampleText = testData.basic.orva
+        let largeText = String(repeating: sampleText, count: REPETITION_COUNT)
+        
+        let startTime = Date()
+        let result = Transliteration.transliterate(text: largeText, mode: "avro")
+        let endTime = Date()
+        
+        let executionTime = endTime.timeIntervalSince(startTime) * 1000 // Convert to milliseconds
+        let executionTimePerThousandChars = (executionTime / Double(largeText.count)) * 1000
+        
+        print("Time taken per 1000 chars: \(executionTimePerThousandChars)ms")
+        
+        // Check if performance meets the requirement
+        #expect(executionTimePerThousandChars <= ALLOWED_MS_PER_THOUSAND_CHARS)
+        
+        // Verify the result is correct by checking first few characters
+        let expectedStart = String(testData.basic.avroed.prefix(testData.basic.avroed.count))
+        let resultStart = String(result.prefix(testData.basic.avroed.count))
+        #expect(resultStart == expectedStart)
+    }
 }
 
-@Test func largeText() async throws {
-    let result =   Transliteration.transliterate(text: text, mode: "avro")
-    #expect(result == transliteratedText)
+// Test data structure to match JSON
+struct TestData: Codable {
+    struct Basic: Codable {
+        let orva: String
+        let avroed: String
+    }
+    
+    struct Ligature: Codable {
+        var ligatures: [String: String]
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            ligatures = try container.decode([String: String].self)
+        }
+        
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.singleValueContainer()
+            try container.encode(ligatures)
+        }
+    }
+    
+    let basic: Basic
+    let ligature: Ligature
 }
 
-@Test func performance() async throws {
-    // This is very slow, but it's the best we can do with the current implementation, update the implementation to make it faster at around 5 ms per thousand characters
-    let ALLOWED_MS_PER_THOUSAND_CHARS = 600.00 
-    let REPETITION_COUNT = 1
-
-    let sampleText = text
-    let largeText = String(repeating: sampleText, count: REPETITION_COUNT)
+// Custom error for test failures
+struct TestError: Error {
+    let message: String
     
-    let startTime = Date()
-    let result = Transliteration.transliterate(text: largeText, mode: "avro")
-    let endTime = Date()
-    
-    let executionTime = endTime.timeIntervalSince(startTime) * 1000 // Convert to milliseconds
-    let executionTimePerThousandChars = (executionTime / Double(largeText.count)) * 1000
-    
-    print("Time taken per 1000 chars: \(executionTimePerThousandChars)ms")
-    
-    // Check if performance meets the requirement
-    #expect(executionTimePerThousandChars <= ALLOWED_MS_PER_THOUSAND_CHARS)
-    
-    // Verify the result is correct by checking first few characters
-    let expectedStart = String(transliteratedText.prefix(transliteratedText.count))
-    let resultStart = String(result.prefix(transliteratedText.count))
-    #expect(resultStart == expectedStart)
+    init(_ message: String) {
+        self.message = message
+    }
 }
