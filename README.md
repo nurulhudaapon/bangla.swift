@@ -1,14 +1,14 @@
-# Bangla.swift
+# BanglaKit
 
 A Swift package for Bangla language processing, providing various NLP functionalities.
 
 ## Features
 
 - 📄️ 🔍 Tokenization: Breaking down Bangla text into tokens
-- 📄️ 🌱 Stemming: Reducing Bangla words to their root form
-- 📄️ 🏷️ POS: Part of Speech tagging for Bangla text
-- 📄️ 🔖 NER: Named Entity Recognition for Bangla text
-- 📄️ ↹ Transliteration: Converting between different Bangla scripts
+- 📄️ 🌱 Stemming: Reducing Bangla words to their root form (upcoming)
+- 📄️ 🏷️ POS: Part of Speech tagging for Bangla text (upcoming)
+- 📄️ 🔖 NER: Named Entity Recognition for Bangla text (upcoming)
+- 📄️ ↹ Transliteration: Converting between different Bangla scripts (upcoming)
 
 ## Requirements
 
@@ -24,7 +24,7 @@ Add the following to your `Package.swift` file:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/nurulhudaapon/bangla.swift.git", from: "0.0.0")
+    .package(url: "https://github.com/nurulhudaapon/bangla.swift.git", from: "0.0.4")
 ]
 ```
 
@@ -41,11 +41,7 @@ dependencies: [
 ## Usage
 
 ```swift
-import BanglaSwift
+import BanglaKit
 
-// Example usage will be added as features are implemented
+print(Transliteration.transliterate(text: "ami tOmay valObashi.", mode: "avro")) // => আমি তোমায় ভালোবাসি।
 ```
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
