@@ -17,8 +17,11 @@ final class TransliterationTests {
 
 
     @Test func basic() async throws {
-        let result = Transliteration.transliterate(text: testData.basic.orva, mode: "avro")
-        #expect(result == testData.basic.avroed)
+        // Test each avro test case
+        for testCase in testData.avro {
+            let result = Transliteration.transliterate(text: testCase.orva, mode: "avro")
+            #expect(result == testCase.avroed)
+        }
     }
 
     @Test func ligature() async throws {
@@ -36,7 +39,7 @@ final class TransliterationTests {
         let ALLOWED_MS_PER_THOUSAND_CHARS = 4.0
         let REPETITION_COUNT = 1000 // Increased to match JS test
 
-        let sampleText = testData.basic.orva
+        let sampleText = testData.avro[0].orva
         let largeText = String(repeating: sampleText, count: REPETITION_COUNT)
         
         let startTime = Date()
@@ -52,15 +55,15 @@ final class TransliterationTests {
         #expect(executionTimePerThousandChars <= ALLOWED_MS_PER_THOUSAND_CHARS)
         
         // Verify the result is correct by checking first few characters
-        let expectedStart = String(testData.basic.avroed.prefix(testData.basic.avroed.count))
-        let resultStart = String(result.prefix(testData.basic.avroed.count))
+        let expectedStart = String(testData.avro[0].avroed.prefix(testData.avro[0].avroed.count))
+        let resultStart = String(result.prefix(testData.avro[0].avroed.count))
         #expect(resultStart == expectedStart)
     }
 }
 
 // Test data structure to match JSON
 struct TestData: Codable {
-    struct Basic: Codable {
+    struct Avro: Codable {
         let orva: String
         let avroed: String
     }
@@ -79,7 +82,7 @@ struct TestData: Codable {
         }
     }
     
-    let basic: Basic
+    let avro: [Avro]
     let ligature: Ligature
 }
 
