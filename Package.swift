@@ -23,7 +23,10 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "BanglaKit",
-            dependencies: []),
+            dependencies: [],
+            resources: [
+                .process("Transliteration/rules.json")
+            ]),
         .testTarget(
             name: "BanglaKitTests",
             dependencies: ["BanglaKit"],
