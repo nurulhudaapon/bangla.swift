@@ -1,0 +1,17 @@
+{
+  "": {
+    "swift-dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKitTests.build/master.swiftdeps"
+  },
+  "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/Tests/BanglaKitTests/TransliterationTests.swift": {
+    "dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKitTests.build/TransliterationTests.d",
+    "object": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKitTests.build/TransliterationTests.swift.o",
+    "swiftmodule": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKitTests.build/TransliterationTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKitTests.build/TransliterationTests.swiftdeps"
+  },
+  "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKitTests.build/DerivedSources/resource_bundle_accessor.swift": {
+    "dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKitTests.build/resource_bundle_accessor.d",
+    "object": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKitTests.build/resource_bundle_accessor.swift.o",
+    "swiftmodule": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKitTests.build/resource_bundle_accessor~partial.swiftmodule",
+    "swift-dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKitTests.build/resource_bundle_accessor.swiftdeps"
+  }
+}

@@ -1,0 +1,4 @@
+module BanglaKitPackageTests {
+    header "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKitPackageTests.build/BanglaKitPackageTests-Swift.h"
+    requires objc
+}

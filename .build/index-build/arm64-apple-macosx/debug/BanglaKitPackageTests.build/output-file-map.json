@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/index-build/arm64-apple-macosx/debug/BanglaKitPackageTests.build/master.swiftdeps"
+  },
+  "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/index-build/arm64-apple-macosx/debug/BanglaKitPackageTests.derived/runner.swift": {
+    "dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/index-build/arm64-apple-macosx/debug/BanglaKitPackageTests.build/runner.d",
+    "object": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/index-build/arm64-apple-macosx/debug/BanglaKitPackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/index-build/arm64-apple-macosx/debug/BanglaKitPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/index-build/arm64-apple-macosx/debug/BanglaKitPackageTests.build/runner.swiftdeps"
+  }
+}

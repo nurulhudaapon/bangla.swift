@@ -1,0 +1,4 @@
+module Snippets {
+    header "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/index-build/arm64-apple-macosx/debug/Snippets-tool.build/Snippets-Swift.h"
+    requires objc
+}

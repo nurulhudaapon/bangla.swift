@@ -1,0 +1,23 @@
+{
+  "": {
+    "swift-dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/master.swiftdeps"
+  },
+  "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/checkouts/swift-docc-plugin/Sources/snippet-extract/SnippetBuildCommand.swift": {
+    "dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/SnippetBuildCommand.d",
+    "object": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/SnippetBuildCommand.swift.o",
+    "swiftmodule": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/SnippetBuildCommand~partial.swiftmodule",
+    "swift-dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/SnippetBuildCommand.swiftdeps"
+  },
+  "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/checkouts/swift-docc-plugin/Sources/snippet-extract/Utility/SymbolGraph+Snippet.swift": {
+    "dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/SymbolGraph+Snippet.d",
+    "object": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/SymbolGraph+Snippet.swift.o",
+    "swiftmodule": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/SymbolGraph+Snippet~partial.swiftmodule",
+    "swift-dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/SymbolGraph+Snippet.swiftdeps"
+  },
+  "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/checkouts/swift-docc-plugin/Sources/snippet-extract/Utility/URL+Status.swift": {
+    "dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/URL+Status.d",
+    "object": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/URL+Status.swift.o",
+    "swiftmodule": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/URL+Status~partial.swiftmodule",
+    "swift-dependencies": "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/snippet_extract-tool.build/URL+Status.swiftdeps"
+  }
+}
