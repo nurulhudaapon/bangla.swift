@@ -1,13 +1,13 @@
 import Foundation
 
-enum TransliterationError: Error {
+public enum TransliterationError: Error {
     case invalidMode(String)
     case notImplemented(String)
     case grammarLoadingError(Error)
 }
 
-class Transliteration {
-    enum Mode: String {
+public class Transliteration {
+    public enum Mode: String {
         case avro, orva, banglish, lishbang
     }
 
@@ -59,7 +59,7 @@ class Transliteration {
         return root
     }
 
-    func transliterate(text: String, mode: Mode) throws -> String {
+    public func transliterate(text: String, mode: Mode) throws -> String {
         switch mode {
         case .avro:
             return try avro(text: text)

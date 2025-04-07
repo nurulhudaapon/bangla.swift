@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Generate documentation
-rm -rf docs && mkdir docs && swift package --allow-writing-to-directory docs generate-documentation --target BanglaKit --transform-for-static-hosting --hosting-base-path bangla.swift --output-path docs && touch docs/.nojekyll && echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=documentation/banglakit/"></head></html>' > docs/index.html
+rm -rf docs && mkdir docs && swift package --allow-writing-to-directory docs generate-documentation --target BanglaKit --transform-for-static-hosting --hosting-base-path bangla.swift --output-path docs
+touch docs/.nojekyll && echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=documentation/banglakit/"></head></html>' > docs/index.html
+
 # Create and switch to gh-pages branch
 if git show-ref --verify --quiet refs/heads/gh-pages; then
     git checkout gh-pages
