@@ -99,7 +99,7 @@ public class Transliteration {
     /// These rules define the transliteration patterns and their replacements.
     ///
     /// - Throws: ``TransliterationError/grammarLoadingError(_:)`` if the rules file cannot be loaded or parsed
-    init() throws {
+    public init() throws {
         guard let rulesURL = Bundle.module.url(forResource: "rules", withExtension: "json") else {
             throw TransliterationError.grammarLoadingError(NSError(domain: "Transliteration", code: 1, userInfo: [NSLocalizedDescriptionKey: "rules.json not found"]))
         }
