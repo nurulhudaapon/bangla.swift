@@ -2,7 +2,7 @@
 
 # Generate documentation
 rm -rf docs && mkdir docs && swift package --allow-writing-to-directory docs generate-documentation --target BanglaKit --transform-for-static-hosting --hosting-base-path bangla.swift --output-path docs
-touch docs/.nojekyll && echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=documentation/banglakit/"></head></html>' > docs/index.html
+echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=documentation/banglakit/"></head></html>' > docs/index.html
 
 # Create and switch to gh-pages branch
 if git show-ref --verify --quiet refs/heads/gh-pages; then
@@ -15,13 +15,11 @@ fi
 # Copy docs to root and clean up
 cp -r docs/* .
 rm -rf docs
+touch .nojekyll
 
 # Add and commit changes
 git add .
 git commit -m "Update documentation"
-
-# Cleanup empty directories
-find . -type d -empty -delete
 
 # Push to gh-pages branch
 git push origin gh-pages
