@@ -1,4 +1,0 @@
-module BanglaKit {
-    header "/Users/nurulhudaapon/Projects/nurulhudaapon/bangla.swift/.build/arm64-apple-macosx/debug/BanglaKit.build/BanglaKit-Swift.h"
-    requires objc
-}

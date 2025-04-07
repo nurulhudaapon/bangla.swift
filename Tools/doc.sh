@@ -14,6 +14,7 @@ fi
 # Copy docs to root and clean up
 cp -r docs/* .
 rm -rf docs
+rm -rf .build
 
 # Add and commit changes
 git add .
