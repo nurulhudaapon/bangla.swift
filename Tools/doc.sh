@@ -26,6 +26,9 @@ git push origin gh-pages
 
 # Switch back to previous branch
 git checkout -
+# Delete empty directories
+find . -type d -empty -delete
+
 
 # Print success message
 echo "Documentation updated and pushed to gh-pages branch"
